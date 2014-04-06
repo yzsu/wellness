@@ -1,0 +1,85 @@
+<% blood_pressure = (defined?(bld_pres)) ? bld_pres : {} %>
+<div class="row">
+  <div class="col-sm-4 avg_sys_dia_div">
+    <div class="row">
+      <div class="col-sm-12" style=" text-align: center;line-height: 15px;">
+        <h5 style="font-weight: bold;font-size: 15px;">AVG. SYSTOLIC</h5>
+          <span style="font-size: 30px;" class="<%= blood_pressure['sys_color'] %>">
+            <%= blood_pressure['sys'] %>
+          </span>
+        <br>
+        mg/dl
+        <br>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12" style=" text-align: center;line-height: 15px;margin-top: 2%">
+        <h5 style="font-weight: bold;font-size: 15px;">AVG. DIASTOLIC</h5>
+          <span style="font-size: 30px;" class="<%= blood_pressure['dia_color'] %>">
+            <%= blood_pressure['dia'].to_i %>
+          </span>
+        <br>
+        mg/dl
+        <br>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-sm-8 sys_dia_movers_div">
+    <h5 style="font-weight: bold; text-align: center;font-size: 16px;">Biggest Movers</h5>
+      <div class="row">
+        <div class="col-xs-6" style="text-align: right; font-size: 15px;">
+          <%= link_to 'systolic', '#', class: 'sys_toggle' %>
+        </div>
+        <div class="col-xs-6" style="text-align: left; font-size: 15px;">
+          <%= link_to 'diastolic', '#', class: 'dia_toggle', style: 'color: #E2E2E2' %>
+        </div>
+    </div>
+
+    <div class="avg_sys_movers">
+      <%= render partial: '/home/index/sub_avg_sys_dia_toggle', locals: { sys_dia_movers: blood_pressure['sys_movers'] } %>
+    </div>
+
+    <div class="avg_dia_movers" style="display: none;">
+      <%= render partial: '/home/index/sub_avg_sys_dia_toggle', locals: { sys_dia_movers: blood_pressure['dia_movers'] } %>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function sys_dia_ht(){
+    var avg_sd_ht = $('.avg_sys_dia_div');
+    var sd_mov_ht = $('.sys_dia_movers_div').outerHeight();
+    var avg_ht = avg_sd_ht.outerHeight();
+    var rem_ht = (sd_mov_ht - avg_ht)/2;
+    if(sd_mov_ht > avg_ht) {
+      if ($(window).width() > 753) {
+        avg_sd_ht.css('margin-top', rem_ht+'px');
+        avg_sd_ht.css('margin-bottom', rem_ht+'px');
+      } else {
+        avg_sd_ht.css('margin-top', '0');
+        avg_sd_ht.css('margin-bottom', '0');
+      }
+    
+    }
+  }
+  $(window).resize(sys_dia_ht);
+  sys_dia_ht();
+  
+  $('.sys_toggle').on('click', function(){
+    $('.avg_sys_movers').show();
+    $('.avg_dia_movers').hide();
+    $('.dia_toggle').css('color', '#E2E2E2');
+    $('.sys_toggle').css('color', '#646464;');
+    return false
+  });
+  $('.dia_toggle').on('click', function(){
+    $('.avg_sys_movers').hide();
+    $('.avg_dia_movers').show();
+    $('.sys_toggle').css('color', '#E2E2E2');
+    $('.dia_toggle').css('color', '#646464;');
+    return false
+  });
+</script>

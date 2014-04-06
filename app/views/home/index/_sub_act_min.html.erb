@@ -1,0 +1,63 @@
+<% if defined?(act_min) %>
+  <% active_minutes = act_min %>
+<% else %>
+  <% active_minutes = {} %>
+  <% active_minutes['actmovers'] = [] %>
+<% end %>
+
+<div class="col-sm-3 avg_active_min">
+  <div class="row">
+    <div class="col-sm-12" style="text-align: center;line-height: 15px;">
+      <h5 style="font-weight: bold;font-size: 15px">AVG. ACTIVE MIN</h5>
+        <span class="<%= active_minutes['avg_act_min_color'] %> " style="font-size: 30px;">
+          <%= active_minutes['avg_act_min'] %>
+        </span>
+      <br>
+      min
+      <br>
+    </div>
+  </div>
+
+</div>
+<div class="col-sm-9 act_min_movers">
+  <h5 style="font-weight: bold; text-align: center;font-size: 16px">Biggest Movers</h5>
+
+  <% active_minutes['actmovers'].each do |mover| %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-7" style="color: #555;">
+        <img src="http://www.peopleplacers.co.uk/wp-content/uploads/2012/07/business-people1.jpg" width="25" height="25">
+        <span title="<%= mover['name'] %>">
+          <%= truncate(mover['name'], length: 21) %>
+        </span>
+      </div>
+      <div class="col-xs-12 col-sm-3 <%= mover['color'] %>" style="font-size: 15px;">
+        <span> <%= mover['amount'].to_i.abs %> </span>
+        <span style="color: #b1b1b1">min</span>
+      </div>
+      <div class="col-xs-12 col-sm-2" style="">
+        <span class="<%= mover['amount'].to_i < 0 ? 'arrow-s' : 'arrow-n' %>" style="font-size:1em;"></span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  function avg_act_ht(){
+    var avg_min = $('.avg_active_min');
+    var act_min_ht = $('.act_min_movers').outerHeight();
+    var avg_ht = avg_min.outerHeight();
+    var rem_ht = (act_min_ht - avg_ht)/2;
+    if(act_min_ht > avg_ht) {
+    // console.log('yes')
+        if ($(window).width() > 753) {
+          avg_min.css('margin-top', rem_ht+'px');
+          avg_min.css('margin-bottom', rem_ht+'px');
+        } else {
+          avg_min.css('margin-top', '0');
+          avg_min.css('margin-bottom', '0');
+        }
+    }
+  }
+  $(window).resize(avg_act_ht);
+  avg_act_ht();
+</script>

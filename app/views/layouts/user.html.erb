@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wellness - Sign up</title>
+	<link rel="stylesheet" type="text/css" href="/assets/session.css" />
+    <%# stylesheet_link_tag "sessions", "data-turbolinks-track" => true %>
+    <%# javascript_include_tag "sessions", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+	<div class="container">
+	  <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+	  <div class="row">
+	  <img alt="wellness" src="/assets/signup.png"/>
+      <%= form_for(@user) do |f| %>
+	  <%= render 'shared/error_messages' %>
+	  <div class="span4 offset1" style="margin-bottom: 20px;">
+	  <p class="p_title">  Account information </p>
+	  	  <div> <%= f.text_field :email, style: 'width:300px', placeholder: ' email address' %></div>
+		  <div> <%= f.text_field :email_confirmation, style: 'width:300px', placeholder: ' confirm email address' %></div>
+		  <div> <%= f.password_field :password, style: 'width:300px', placeholder: ' password' %></div>
+		  <div> <%= f.password_field :password_confirmation, style: 'width:300px', placeholder: ' confirm password' %></div>
+	  </div>
+	  <hr  noshade size=7 width=800px>
+      <div class="span7 offset1">
+	     <p class="p_title">  Profile information </p>	  
+		 <upload>
+			<img alt="wellness" src="/assets/user.png"/>
+		 </upload>
+		 <upload>
+			<button type="button">UPLOAD PHOTO</button>
+		 </upload>
+		 <div style="margin-top: 30px;">
+		 <%= f.text_field :firstname,   style: 'width:200px', placeholder: ' first name' %> 
+	     <%= f.text_field :lastname,  style: 'width:200px', placeholder: ' last name'  %> 
+		 </div>
+		 <%= f.text_field :hospitalname,   style: 'width:300px', placeholder: ' hospital/clinic name' %>
+		 <div>
+		  <%= f.text_field :add1, style: 'width:400px', placeholder: ' hospital/clinic address' %>
+		  <%= f.text_field :add2, style: 'width:45px', placeholder: 'state' %>
+		  <%= f.text_field :add3, style: 'width:65px',  placeholder: 'zipcode' %>
+		 </div>
+		 <p class="p_title">  phone </p>	  
+		 <div>
+		  <%= f.text_field :phone1, style: 'width:45px' %>
+		  <%= f.text_field :phone2, style: 'width:45px' %>
+		  <%= f.text_field :phone3, style: 'width:60px' %>
+		 </div>
+		 <%= f.submit "CREATE ACCOUNT", class:'submit_button', style: 'width:300px'%>
+	</div> 
+    <% end %>
+	</div>
+    </div>
+  </body>
+</html>

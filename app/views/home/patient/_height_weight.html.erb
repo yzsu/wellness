@@ -1,0 +1,65 @@
+<div class="row">
+
+  <div class="col-md-12 col-sm-12 col-xs-12 we-box">
+    <div class="box">
+      <div class="we-title">
+        height + weight
+      </div>
+      <div class="we-content">
+        <div class="row ht-wt">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <% ht = (biometrics['hght']['value'].to_f * 3.2808).round(2).to_s rescue 0  %>
+            <span><%= ht.split('.').first %></span>
+            ft
+            <span><%= ht.split('.').last %></span>
+            in
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <span>
+              <%= biometrics['wght']['value'] %>
+            </span>
+            pounds
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-12 col-sm-12 col-xs-12 we-box">
+    <div class="box smoke-status">
+      <% if risks['smoking'] %>
+        <% smoke = risks['smoking'].to_i %>
+        <% if smoke == 0 || smoke == 1 %>
+          <% smoking_status = 'Non Smoker / Never Smoked'  %>
+          <% smoking_class = 'well-green' %>
+        <% elsif smoke == 2 %>
+          <% smoking_status = 'Past-Smoker / Recently Quit'  %>
+          <% smoking_class = 'well-yellow' %>
+        <% elsif smoke == 3 %>
+          <% smoking_status = 'Current Smoker'  %>
+          <% smoking_class = 'well-red' %>
+        <% else %>
+          <% smoking_class = '' %>
+          <% smoking_status = 'NA' %>
+        <% end %>
+      <% else %>
+        <% smoking_class = '' %>
+        <% smoking_status = 'NA' %>
+      <% end %>
+      <div class="we-title">
+        Smoking Status
+      </div>
+      <div class="we-content">
+          <span class="<%= smoking_class %>">
+            <%= smoking_status %>
+          </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-sm-12 col-xs-12 we-box">
+    <%= render partial: '/home/patient/depression', locals: { risks: risks } %>
+  </div>
+
+</div>

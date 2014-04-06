@@ -1,0 +1,305 @@
+
+.nav-people {
+  margin-right: 20px;
+  li > a > i {
+    font-size: 20px !important;
+  }
+}
+
+.we-box{
+  .we-title{
+    height: 42px;
+    background: white;
+    text-align: center;
+    padding: 12px;
+    color: #a1a1a1;
+    font-size: 1.3em;
+  }
+  .we-content{
+    min-height: 20px;
+    background: #ffffff;
+    margin-top: 3px;
+    padding: 5px;
+    font-size: 16px;
+    color: #b1b1b1;
+
+    ul li{
+      width: 50%;
+    }
+  }
+  .we-row{
+    border-bottom: solid 1px #e4e4e4;
+    margin: 10px;
+  }
+  .we-row i, div i{
+    font-size: 10px;
+  }
+  div span {
+    font-size: 12px;
+  }
+  .progress{
+    height: 10px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    .progress-bar {
+      box-shadow: none;
+    }
+  }
+  .box{
+    margin: 5px 0;
+  }
+}
+
+.we-target{
+  text-align: right;
+  span.val{
+    font-size: 22px;
+    display: block;
+    color: #868686;;
+  }
+  span.name{
+    font-size: 13px;
+    color: #B1B1B1;
+  }
+}
+
+.we-profile{
+  p:first-child{
+    font-size: 18px;
+    font-weight: bold
+  }
+  p:nth-child(2){
+    font-size: 25px;
+    color: #cccccc
+  }
+  p:nth-child(2) i {
+    margin-right: 12px
+  }
+  p{
+    font-size: 16px;
+  }
+}
+.ht-wt{
+  text-align: center;
+  color: #868686;
+  div {
+    font-size: 14px
+  }
+  div span{
+    font-size: 25px;
+//    font-weight: bold
+  }
+}
+.smoke-status, .depression{
+  div:nth-child(2){
+    text-align: center
+  }
+  div span{
+    font-size: 14px;
+  }
+}
+.medication{
+  div:nth-child(2) div{
+    text-align: center; font-size: 16px; padding: 5px
+  }
+}
+
+.we-cholesterol{
+  hr{
+    margin: 0;
+  }
+  .chol-units{
+    div{
+      font-size: 14px;
+      font-weight: bold;
+      border-right: solid 1px #ccc;
+      color: #a1a1a1;
+      div{
+        border-right: none;
+        font-size: 12px;
+        font-weight: normal;
+        span{
+          font-size: 18px;
+        }
+      }
+    }
+    div:last-child{
+      border-right: none;
+    }
+  }
+  .chol-prog{
+    .progress{
+      height: 20px;
+
+    }
+  }
+}
+
+.we-fitness, .we-diet{
+  .f-title{
+    font-size: 1.25em;
+    line-height: 2em;
+    color: #B1B1B1;
+  }
+
+  .fd-qua{
+    font-size: 1.25em;
+    margin-top: 6px;
+    span{
+      font-size: 14px;
+    }
+  }
+}
+
+
+
+.stat-calender-tab{
+  margin-left: auto;
+  width: 100%;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 5%;
+  .we-stat, .we-cal{
+    text-decoration: none;
+    background-color: #a9d248;
+    color: white;
+  }
+
+  .we-stat {
+    margin-left: 1%;
+    padding: 5% 12%;
+  }
+  .we-cal {
+    margin-left: -2%;
+    padding: 5% 5%;
+//    margin-left: -1%;
+  }
+  .we-stat.active, .we-cal.active {
+    border: #a9d248 solid 2px;
+    background: white;
+    color: #868686;
+    cursor: default;
+  }
+  .we-stat.active{
+    padding: 4% 13%;
+  }
+  .we-cal.active{
+    padding: 4% 5%;
+  }
+}
+
+.well-week:hover, .well-month:hover{
+  text-decoration: none;
+}
+.well-week{
+  border: 2px solid #a9d248;
+  padding: 3% 7%;
+  cursor: pointer;
+}
+.well-week.active{
+  background: #a9d248;
+  color: white;
+  padding: 3% 6%;
+  cursor: default;
+}
+.well-month {
+  border: 2px solid #a9d248;
+  padding: 3% 6%;
+  margin-left: -12% !important;
+  cursor: pointer;
+}
+.well-month.active{
+  border: none;
+  background: #a9d248;
+  color: white;
+  padding: 5% 9%;
+  cursor: default;
+}
+
+/* Higher than 1200 (desktop devices)
+====================================================================== */
+@media (min-width: 1200px) {
+
+}
+/* Higher than 980 (desktop devices)
+====================================================================== */
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+
+
+
+}
+/* Higher than 980 (desktop devices)
+====================================================================== */
+@media only screen and (min-width: 980px) {
+  .patient-search {
+    width: 25%;
+    margin-top: 13px;
+    margin-left: 250px;
+  }
+
+  .we-image div:first-line {
+//    margin-left: 18%;
+  }
+
+  .fitness, .cholesterol{
+//    margin-left: 5%;
+  }
+
+  .fitness, .diet, .weight_bmi, .cholesterol, .blood_sugar, .blood_pressure {
+    width: 30%;
+  }
+
+  .height_weight, .depression_medication{
+    width: 27%
+  }
+
+}
+/* Higher than 768 (desktop devices and tablets)
+====================================================================== */
+@media only screen and (min-width: 768px) {
+  .stat-calender-tab{
+//    margin-left: 20%; margin-top: 5%
+  }
+}
+/* Tablet Portrait (devices and browsers)
+====================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  .patient-search {
+    margin-bottom: 5px;
+  }
+}
+/* All Mobile Sizes (devices and browser)
+====================================================================== */
+@media only screen and (max-width: 767px) {
+  .patient-search {
+    margin-bottom: -30px;
+  }
+  .we-profile{
+    text-align: center;
+  }
+  .we-image div {
+    float: none !important;
+    text-align: center;
+  }
+
+  .chol-units{
+    div{
+      border-right: none !important;
+      div{
+        float: right;
+      }
+    }
+  }
+}
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers)
+====================================================================== */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
+=================================================================== */
+@media only screen and (max-width: 479px) {
+
+
+}

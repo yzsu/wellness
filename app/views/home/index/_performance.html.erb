@@ -1,0 +1,70 @@
+<div class="box">
+  <div class="box-header">
+    <h2>
+      <!--<i class="fa fa-list"></i><span class="break"></span>-->
+      performance
+    </h2>
+
+    <div class="box-icon" style="width: 130px;">
+      <a class="pf-week well-week active" href="#">Best</a>
+      <a class="pf-month well-month" href="#">Worst</a>
+    </div>
+  </div>
+  <div class="box-content perf_cont">
+
+    <div class="best_performance">
+      <%= render partial: '/home/index/best_worst' %>
+    </div>
+
+    <div class="worst_performance" style="display: none;">
+      <%= render partial: '/home/index/best_worst' %>
+    </div>
+
+  </div>
+</div>
+
+
+<style>
+  .pf-month.active{
+    padding: 5% 9%;
+  }
+
+  .pf-month{
+    padding: 3% 9%;
+  }
+
+  .pf-week {
+    padding: 3.5% 12%;
+  }
+
+  .pf-week.active {
+    padding: 3% 9%;
+  }
+  .performance_bar{
+    padding: 8%;
+    margin: 5% 0;
+    background: -webkit-linear-gradient(left, #F2AF00 , #a9d248); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #F2AF00, #a9d248); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #F2AF00, #a9d248); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #F2AF00 , #a9d248); /* Standard syntax */
+    height: 20px !important;
+  }
+</style>
+
+<script>
+  $('.pf-week').on('click', function(){
+    $('.best_performance').show();
+    $('.worst_performance').hide();
+    $(this).addClass('active');
+    $('.pf-month').removeClass('active');
+    return false
+  });
+
+  $('.pf-month').on('click', function(){
+    $('.best_performance').hide();
+    $('.worst_performance').show();
+    $(this).addClass('active');
+    $('.pf-week').removeClass('active');
+    return false
+  });
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wellness Sign in</title>
+    <%= stylesheet_link_tag "sessions", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "sessions", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+	  <div class="container">
+	  <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+	 <div >
+		<div id="wrapper" style="width:100%; text-align:center">
+		<img alt="wellness" src="/assets/portal.png"//>
+		</div>
+	 <br>
+	 <br>
+	  <div class="span4 offset4">
+		<%= form_for(:session, url: sessions_path) do |f| %>
+		  <%= f.text_field :email, class: 'form-control', placeholder: '  email address' %>
+	 	  <%= f.password_field :password, class: 'form-control', placeholder: '  password' %>
+		  <label>
+			<%= f.check_box :remember_me %> remember me
+		  </label>
+		  <%= f.submit "SIGN IN", class:'submit_button', style: 'width:300px'%>
+		<% end -%>
+		<p>new to wellness? <%= link_to "create an account",  signup_path, style: 'color:#99FF66' %></p>
+	  </div>
+	</div>
+    </div>
+  </body>
+</html>
+
+

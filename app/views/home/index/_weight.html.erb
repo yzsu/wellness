@@ -1,0 +1,45 @@
+<div class="box">
+  <div class="box-header">
+    <h2>
+      <!--<i class="fa fa-list"></i><span class="break"></span>-->
+      weight
+    </h2>
+
+    <div class="box-icon" style="width: 70px">
+      <a class="wt-week well-week active" href="#">W</a>
+      <a class="wt-month well-month" href="#">M</a>
+    </div>
+  </div>
+  <div class="box-content avg_wt_cont">
+
+    <div class="average_weight_weekly">
+      <%= render partial: '/home/index/sub_avg_weight' %>
+    </div>
+
+    <div class="average_weight_monthly" style="display: none">
+      <%= render partial: '/home/index/sub_avg_weight' %>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+  $('.wt-week').on('click', function(){
+    $('.average_weight_weekly').show();
+    $('.average_weight_monthly').hide();
+    $(this).addClass('active');
+    $('.wt-month').removeClass('active');
+    return false
+  });
+
+  $('.wt-month').on('click', function(){
+    $('.average_weight_weekly').hide();
+    $('.average_weight_monthly').show();
+    $(this).addClass('active');
+    $('.wt-week').removeClass('active');
+    return false
+  });
+
+
+</script>

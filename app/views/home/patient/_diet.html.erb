@@ -1,0 +1,112 @@
+<% if (defined?(diet)).present? %>
+  <% veg = diet['veg'].to_i %>
+  <% veg_color = we_colors[:veg_color] %>
+  <% veg_bar = we_colors[:veg_bar] %>
+  <% fruit = diet['fruit'].to_i %>
+  <% fruit_color = we_colors[:fruit_color] %>
+  <% fruit_bar = we_colors[:fruit_bar] %>
+  <% dairy = diet['dairy'].to_i %>
+  <% dairy_color = we_colors[:dairy_color] %>
+  <% dairy_bar = we_colors[:dairy_bar] %>
+  <% meat = diet['meat'].to_i %>
+  <% meat_color = we_colors[:meat_color] %>
+  <% meat_bar = we_colors[:meat_bar] %>
+<% else %>
+  <% veg = '0' %>
+  <% veg_color = 'well-bg-white' %>
+  <% veg_bar = '0' %>
+  <% fruit = '0' %>
+  <% fruit_color = 'well-bg-white' %>
+  <% fruit_bar = '0' %>
+  <% dairy = '0' %>
+  <% dairy_color = 'well-bg-white' %>
+  <% dairy_bar = '0' %>
+  <% meat = '0' %>
+  <% meat_color = 'well-bg-white' %>
+  <% meat_bar = '0' %>
+<% end %>
+
+<!--<div class="box we-diet span4" ontablet="span6" ondesktop="span4">-->
+<div class="box we-diet span4">
+<div class="we-title">
+    diet
+  </div>
+  <div class="we-content">
+    <div class="we-row">
+      <span class="f-title">
+        vegetables
+      </span>
+      <span class="pull-right fd-qua">
+        <%= veg %>
+        <span> servings </span>
+      <i class="fa fa-chevron-right"></i>
+      </span>
+      <div class="progress">
+        <div class="progress-bar <%= veg_color %> " role="progressbar" aria-valuenow="<%= veg_bar %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= veg_bar %>%"></div>
+      </div>
+    </div>
+
+
+    <div class="we-row">
+      <span class="f-title">
+        fruit
+      </span>
+      <span class="pull-right fd-qua">
+        <%= fruit %>
+        <span>pieces</span>
+
+      <i class="fa fa-chevron-right"></i>
+      </span>
+
+      <div class="progress">
+        <div class="progress-bar <%= fruit_color %>" role="progressbar" aria-valuenow="<%= fruit_bar %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= fruit_bar %>%"></div>
+      </div>
+    </div>
+
+    <div class="we-row">
+      <span class="f-title">
+        dairy
+      </span>
+      <span class="pull-right fd-qua">
+        <%= dairy %>
+        <span>cups</span>
+
+      <i class="fa fa-chevron-right"></i>
+      </span>
+
+      <div class="progress">
+        <div class="progress-bar <%= dairy_color %>" role="progressbar" aria-valuenow="<%= dairy_bar %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= dairy_bar %>%"></div>
+      </div>
+    </div>
+
+    <div class="we-row">
+      <span class="f-title">
+        red meat
+      </span>
+      <span class="pull-right  fd-qua">
+        <%= meat %>
+        <span>pieces</span>
+
+      <i class="fa fa-chevron-right"></i>
+      </span>
+
+      <div class="progress">
+        <div class="progress-bar <%= meat_color %>" role="progressbar" aria-valuenow="<%= meat_bar %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= meat_bar %>%"></div>
+      </div>
+    </div>
+    <div style="text-align: center">
+      <span class="pull-left">
+        <i class="fa fa-chevron-left"></i>
+        yesterday
+      </span>
+
+      today
+
+      <span class="pull-right">
+        right
+      <i class="fa fa-chevron-right"></i>
+      </span>
+
+    </div>
+  </div>
+</div>

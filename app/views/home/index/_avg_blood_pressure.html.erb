@@ -1,0 +1,54 @@
+<% blood_pressure = (defined?(bld_pres)) ? bld_pres : {} %>
+<div class="box">
+  <div class="box-header">
+    <h2>
+      <!--<i class="fa fa-signal"></i><span class="break"></span>-->
+      blood pressure
+    </h2>
+
+    <div class="box-icon" style="width: 70px">
+      <a class="bp-week well-week active" href="#">W</a>
+      <a class="bp-month well-month" href="#">M</a>
+    </div>
+  </div>
+  <div class="box-content avg_bp_cont">
+    <div class="avg_bp_weekly">
+      <%= render partial: '/home/index/sub_avg_blood_pressure', locals: {bld_pres: blood_pressure} %>
+    </div>
+    <div class="avg_bp_monthly" style="display: none">
+      <%= render partial: '/home/index/sub_avg_blood_pressure', locals: {bld_pres: blood_pressure} %>
+    </div>
+  </div>
+</div>
+
+<script>
+  function row2_ht(){
+    var bp_cnt_ht = $('.avg_bp_cont').outerHeight();
+    var wt_cnt_ht = $('.avg_wt_cont').outerHeight();
+    if (bp_cnt_ht > wt_cnt_ht) {
+      $('.avg_wt_cont').css('min-height', bp_cnt_ht+'px');
+    } else {
+      $('.avg_bp_cont').css('min-height', wt_cnt_ht+'px');
+    }
+    // console.log('row2')
+  }
+//  $(window).resize(row2_ht);
+  setTimeout(function(){ row2_ht() } ,500);
+
+
+  $('.bp-week').on('click', function(){
+    $('.avg_bp_weekly').show();
+    $('.avg_bp_monthly').hide();
+    $(this).addClass('active');
+    $('.bp-month').removeClass('active');
+    return false
+  });
+
+  $('.bp-month').on('click', function(){
+    $('.avg_bp_weekly').hide();
+    $('.avg_bp_monthly').show();
+    $(this).addClass('active');
+    $('.bp-week').removeClass('active');
+    return false
+  });
+</script>

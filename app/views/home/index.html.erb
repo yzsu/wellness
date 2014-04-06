@@ -1,0 +1,80 @@
+<div id="content" class="col-sm-12">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+
+      <div class="row circleStats" style="min-width: 308px;">
+        <div id="dashboard_goals_partial">
+          <%= render partial: '/home/index/goals' %>
+        </div>
+      </div>
+      <!--/row-->
+
+      <div class="row">
+        <div style="text-align: center;">
+          <img alt="Dropshadow" src="/assets/dropshadow.png" style="width: 80%;">
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col-md-6 col-sm-12">
+          <div id="upcoming_patients_partial">
+            <%= render partial: '/home/index/upcoming_patients' %>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: '/home/index/active_minutes' %>
+        </div>
+        <!--/col-->
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6 col-sm-12">
+          <div id="avg_blood_pressure_partial">
+            <%= render partial: '/home/index/avg_blood_pressure' %>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <div id="avg_weight_partial">
+            <%= render partial: '/home/index/weight' %>
+          </div>
+        </div>
+        <!--/col-->
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6 col-sm-12">
+          <div id="avg_blood_sugar_partial">
+            <%= render partial: '/home/index/avg_blood_sugar' %>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <div id="performance_partial">
+            <%= render partial: '/home/index/performance' %>
+          </div>
+        </div>
+        <!--/col-->
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  $( document ).ready(function() {
+    $.get('/home/dashboard');
+  });
+</script>
