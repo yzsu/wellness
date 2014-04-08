@@ -1872,7 +1872,8 @@ legend {
 label {
   display: inline-block;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: normal;
+  vertical-align: middle;
 }
 
 input[type="search"] {
@@ -5105,7 +5106,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #ffffff;
   text-align: center;
   white-space: nowrap;
-  vertical-align: baseline;
+  vertical-align: middle;
   border-radius: .25em;
 }
 
