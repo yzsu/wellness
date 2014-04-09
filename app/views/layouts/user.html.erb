@@ -9,22 +9,22 @@
   </head>
   <body>
 	<div class="container">
-	  <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-	  <div class="row">
-	  <img alt="wellness" src="/assets/signup.png"/>
-      <%= form_for(@user) do |f| %>
+	    <% flash.each do |key, value| %>
+           <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+	    <div class="row">
+	       <%= image_tag asset_path("signup.png") %>
+        <%= form_for(@user) do |f| %>
 	  <%= render 'shared/error_messages' %>
-	  <div class="span4 offset1" style="margin-bottom: 20px;">
-	  <p class="p_title">  Account information </p>
+	  <div class="col-md-4 col-md-offset-1" style="margin-bottom: 20px;">
+	      <p class="p_title">  Account information </p>
 	  	  <div> <%= f.text_field :email, style: 'width:300px', placeholder: ' email address' %></div>
 		  <div> <%= f.text_field :email_confirmation, style: 'width:300px', placeholder: ' confirm email address' %></div>
 		  <div> <%= f.password_field :password, style: 'width:300px', placeholder: ' password' %></div>
 		  <div> <%= f.password_field :password_confirmation, style: 'width:300px', placeholder: ' confirm password' %></div>
 	  </div>
 	  <hr  noshade size=7 width=800px>
-      <div class="span7 offset1">
+      <div class="col-md-4 col-md-offset-1">
 	     <p class="p_title">  Profile information </p>	  
 		 <upload>
 			<img alt="wellness" src="/assets/user.png"/>
@@ -40,7 +40,7 @@
 		 <div>
 		  <%= f.text_field :add1, style: 'width:400px', placeholder: ' hospital/clinic address' %>
 		  <%= f.text_field :add2, style: 'width:45px', placeholder: 'state' %>
-		  <%= f.text_field :add3, style: 'width:65px',  placeholder: 'zipcode' %>
+		  <%= f.text_field :add3, style: 'width:65px',  placeholder: ' zipcode' %>
 		 </div>
 		 <p class="p_title">  phone </p>	  
 		 <div>
